@@ -1,0 +1,25 @@
+<ng-container *ngIf="movie">
+  <slider [items]="[movie]" [isBanner]="true"></slider>
+  <p-tabView>
+    <p-tabPanel header="Overview">
+      <p>{{ movie.overview }}</p>
+      <span><a [href]="movie.homepage">Official Homepage</a></span>
+    </p-tabPanel>
+    <p-tabPanel header="Videos">
+      <p>Box Office Collection - {{ movie.revenue | currency : 'USD' : 'symbol-narrow' : '0.0-2' }}</p>
+    </p-tabPanel>
+    <p-tabPanel header="Photos">
+      <p>Box Office Collection - {{ movie.revenue | currency : 'USD' : 'symbol-narrow' : '0.0-2' }}</p>
+    </p-tabPanel>
+    <p-tabPanel header="Production">
+      <ul>
+        <li *ngFor="let comp of movie.production_companies">
+          {{ comp.name }}
+        </li>
+      </ul>
+    </p-tabPanel>
+    <p-tabPanel header="Box Office">
+      <p>Box Office Collection - {{ movie.revenue | currency : 'USD' : 'symbol-narrow' : '0.0-2' }}</p>
+    </p-tabPanel>
+  </p-tabView>
+</ng-container>
