@@ -1,0 +1,50 @@
+<div class="slider">
+  <div class="slide">
+    <div class="slide-bg">
+      <img class="slide-bg-img" [src]="imageSizes.large + show.backdrop_path" [alt]="show.name" />
+    </div>
+    <div class="slide-pane">
+      <h2 class="show-name">{{ show.name }}</h2>
+      <div class="meta">
+        <div class="info">
+          <span class="rating">
+            <span class="app-icon">Star</span>
+            <span class="rating-value">{{ show.vote_average | number : '1.0-1' }}</span>
+            <span>/10</span>
+          </span>
+          <span>{{ show.vote_count }} Reviews</span>
+          <span>From {{ show.first_air_date | date : 'yyyy' }}</span>
+        </div>
+        <div class="desc mt-4">
+          {{ show.overview }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p-tabView>
+  <p-tabPanel header="Overview">
+    <p>{{ show.overview }}</p>
+  </p-tabPanel>
+  <p-tabPanel header="Seasons">
+    <p>{{ show.overview }}</p>
+  </p-tabPanel>
+  <p-tabPanel header="Episodes">
+    <p>{{ show.overview }}</p>
+  </p-tabPanel>
+  <p-tabPanel header="Created By">
+    <ul>
+      <li *ngFor="let comp of show.created_by">
+        {{ comp.name }}
+      </li>
+    </ul>
+  </p-tabPanel>
+  <p-tabPanel header="Production">
+    <ul>
+      <li *ngFor="let comp of show.production_companies">
+        {{ comp.name }}
+      </li>
+    </ul>
+  </p-tabPanel>
+</p-tabView>
+<!--<pre>{{ show | json }}</pre>-->

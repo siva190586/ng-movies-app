@@ -28,7 +28,7 @@ export interface MovieObj {
 
 export interface prodComp {
   id: number;
-  logo: string;
   name: string;
-  country: string;
+  logo_path: string;
+  origin_country: string;
 }

@@ -1,6 +1,7 @@
 @import '../../../styles/colors';
 
-.movie-item {
+.movie-item,
+.show-item {
   display: block;
   position: relative;
   min-height: 325px;

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { IMAGE_SIZES } from '../../constants/image-sizes';
 import { Movie } from '../../models/movie';
+import { TVShow } from '../../models/tvshow';
 
 @Component({
   selector: 'item',
@@ -9,5 +10,6 @@ import { Movie } from '../../models/movie';
 })
 export class ItemComponent {
   @Input() itemData!: Movie;
+  @Input() showData!: TVShow;
   readonly imageSizes = IMAGE_SIZES;
 }
