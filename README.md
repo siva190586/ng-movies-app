@@ -28,5 +28,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Angular Libraries
 
-PrimeFlex - https://www.primefaces.org/primeflex/
-PrimeNG - https://primeng.org/
+1. PrimeFlex - https://www.primefaces.org/primeflex/
+2. PrimeNG - https://primeng.org/
