@@ -23,7 +23,6 @@ export class TvshowComponent {
   getTVShow(sid: number) {
     this.showService.getShowDetails(sid).subscribe((showData) => {
       this.show = showData;
-      console.log(showData.backdrop_path);
     });
   }
 }

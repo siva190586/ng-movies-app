@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PaginatorModule } from 'primeng/paginator';
 import { TabViewModule } from 'primeng/tabview';
+import { EmbedVideoComponent } from './components/embed-video/embed-video.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TabViewModule } from 'primeng/tabview';
     ItemComponent,
     MovieComponent,
     TvshowsComponent,
-    TvshowComponent
+    TvshowComponent,
+    EmbedVideoComponent
   ],
   imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, HttpClientModule, PaginatorModule, TabViewModule],
   providers: [],
