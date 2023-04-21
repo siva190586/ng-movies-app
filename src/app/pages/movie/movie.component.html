@@ -49,7 +49,18 @@
         </ng-container>
       </div>
     </p-tabPanel>
-    <p-tabPanel header="Photos"> </p-tabPanel>
+    <p-tabPanel header="Photos">
+      <div class="grid">
+        <ng-container *ngFor="let image of movieImage">
+          <div class="col-12 md:col-4 lg:col-4">
+            <p-image [src]="imageSizes.large + image.file_path" alt="" width="100%" [preview]="true"></p-image>
+          </div>
+        </ng-container>
+      </div>
+    </p-tabPanel>
+    <p-tabPanel header="Credits">
+      <pre>{{ movieCredit | json }}</pre>
+    </p-tabPanel>
     <p-tabPanel header="Production">
       <ul>
         <li *ngFor="let comp of movie.production_companies">
@@ -57,8 +68,21 @@
         </li>
       </ul>
     </p-tabPanel>
-    <p-tabPanel header="Box Office">
-      <p>Box Office Collection - {{ movie.revenue | currency : 'USD' : 'symbol-narrow' : '0.0-2' }}</p>
-    </p-tabPanel>
   </p-tabView>
+  <p-carousel *ngIf="movieCredit" [value]="movieCredit.cast" [numVisible]="5" [numScroll]="3" [circular]="false">
+    <ng-template let-actor pTemplate="actor">
+      <div class="actor">
+        <img [src]="imageSizes.small + actor.profile_path" [alt]="actor.name" />
+        <span>{{ actor.name }}</span>
+      </div>
+    </ng-template>
+  </p-carousel>
+  <p-carousel *ngIf="similarMovies" [value]="similarMovies" [numVisible]="5" [numScroll]="3" [circular]="false">
+    <ng-template let-smovie pTemplate="actor">
+      <div class="actor">
+        <img [src]="imageSizes.medium + smovie.poster_path" [alt]="smovie.title" />
+        <span>{{ smovie.title }}</span>
+      </div>
+    </ng-template>
+  </p-carousel>
 </ng-container>

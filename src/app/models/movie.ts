@@ -48,3 +48,23 @@ export interface MovieVideo {
   key: string;
   site: string;
 }
+
+export interface MovieImages {
+  id: number;
+  backdrops: MovieBackdrops[];
+}
+
+export interface MovieBackdrops {
+  file_path: string;
+  height: number;
+  width: number;
+  aspect_ratio: number;
+}
+
+export interface MovieCredits {
+  id: number;
+  cast: {
+    name: string;
+    profile_path: string;
+  }[];
+}

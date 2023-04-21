@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Movie, MovieObj, MovieVideoObj } from '../models/movie';
+import { Movie, MovieCredits, MovieImages, MovieObj, MovieVideoObj } from '../models/movie';
 import { switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { GenresObj } from '../models/genre';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,30 @@ export class MoviesService {
     return this.http.get<MovieVideoObj>(`${this.baseUrl}/movie/${mid}/videos?api_key=${this.apiKey}`).pipe(
       switchMap((res) => {
         return of(res.results);
+      })
+    );
+  }
+
+  getMovieImage(mid: number) {
+    return this.http.get<MovieImages>(`${this.baseUrl}/movie/${mid}/images?api_key=${this.apiKey}`);
+  }
+
+  getMovieCredit(mid: number) {
+    return this.http.get<MovieCredits>(`${this.baseUrl}/movie/${mid}/credits?api_key=${this.apiKey}`);
+  }
+
+  getSimilarMovies(mid: number) {
+    return this.http.get<MovieObj>(`${this.baseUrl}/movie/${mid}/similar?api_key=${this.apiKey}`).pipe(
+      switchMap((res) => {
+        return of(res.results);
+      })
+    );
+  }
+
+  getMovieGenres() {
+    return this.http.get<GenresObj>(`${this.baseUrl}/genre/movie/list?api_key=${this.apiKey}`).pipe(
+      switchMap((res) => {
+        return of(res.genres);
       })
     );
   }

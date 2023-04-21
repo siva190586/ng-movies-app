@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TvshowsService } from '../../services/tvshows.service';
 import { TVShow } from '../../models/tvshow';
 import { IMAGE_SIZES } from '../../constants/image-sizes';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'tvshow',
@@ -15,7 +16,7 @@ export class TvshowComponent {
   constructor(private route: ActivatedRoute, private showService: TvshowsService) {}
 
   ngOnInit() {
-    this.route.params.subscribe(({ id }) => {
+    this.route.params.pipe(first()).subscribe(({ id }) => {
       this.getTVShow(id);
     });
   }

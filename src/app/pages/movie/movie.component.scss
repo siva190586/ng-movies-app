@@ -30,6 +30,18 @@
     font-weight: bold;
   }
   .value {
-    color: gold;
+    color: $primaryColor;
+  }
+}
+
+.actor {
+  padding: 10px;
+  img {
+    width: 100%;
+  }
+  span {
+    display: block;
+    text-align: center;
+    margin: 10px 0px;
   }
 }

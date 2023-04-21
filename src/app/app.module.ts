@@ -13,11 +13,14 @@ import { TvshowComponent } from './pages/tvshow/tvshow.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { ItemsBannerComponent } from './components/items-banner/items-banner.component';
 import { ItemComponent } from './components/item/item.component';
+import { EmbedVideoComponent } from './components/embed-video/embed-video.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PaginatorModule } from 'primeng/paginator';
 import { TabViewModule } from 'primeng/tabview';
-import { EmbedVideoComponent } from './components/embed-video/embed-video.component';
+import { ImageModule } from 'primeng/image';
+import { CarouselModule } from 'primeng/carousel';
+import { GenresComponent } from './pages/genres/genres.component';
 
 @NgModule({
   declarations: [
@@ -32,9 +35,19 @@ import { EmbedVideoComponent } from './components/embed-video/embed-video.compon
     MovieComponent,
     TvshowsComponent,
     TvshowComponent,
-    EmbedVideoComponent
+    EmbedVideoComponent,
+    GenresComponent
   ],
-  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, HttpClientModule, PaginatorModule, TabViewModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    PaginatorModule,
+    TabViewModule,
+    ImageModule,
+    CarouselModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
