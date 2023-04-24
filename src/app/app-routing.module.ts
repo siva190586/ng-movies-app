@@ -21,11 +21,19 @@ const routes: Routes = [
     component: MoviesComponent
   },
   {
+    path: 'movies/genre/:gid',
+    component: MoviesComponent
+  },
+  {
     path: 'tvshow/:id',
     component: TvshowComponent
   },
   {
     path: 'tvshows',
+    component: TvshowsComponent
+  },
+  {
+    path: 'tvshows/genre/:gid',
     component: TvshowsComponent
   },
   {

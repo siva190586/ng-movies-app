@@ -22,12 +22,15 @@ export class MoviesService {
     );
   }
 
-  searchMovies(pageNum: number = 1) {
-    return this.http.get<MovieObj>(`${this.baseUrl}/movie/popular/?page=${pageNum}&api_key=${this.apiKey}`).pipe(
-      switchMap((res) => {
-        return of(res.results);
-      })
-    );
+  searchMovies(pageNum: number, keyword?: string) {
+    const searchUrl = keyword ? '/search/movie' : '/movie/popular';
+    return this.http
+      .get<MovieObj>(`${this.baseUrl}${searchUrl}?query=${keyword}&page=${pageNum}&api_key=${this.apiKey}`)
+      .pipe(
+        switchMap((res) => {
+          return of(res.results);
+        })
+      );
   }
 
   getMovieDetails(movieId: number) {
@@ -64,5 +67,15 @@ export class MoviesService {
         return of(res.genres);
       })
     );
+  }
+
+  getGenreMovies(gid: string, pgno: number) {
+    return this.http
+      .get<MovieObj>(`${this.baseUrl}/discover/movie?page=${pgno}&with_genres=${gid}&api_key=${this.apiKey}`)
+      .pipe(
+        switchMap((res) => {
+          return of(res.results);
+        })
+      );
   }
 }
